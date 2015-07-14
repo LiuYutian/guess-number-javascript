@@ -12,7 +12,7 @@ describe("Guess_integeration", function() {
         });
     })
 
-    it("normal test", function() {
+    it("#inValue() normal test", function() {
         returnValue = [0.723, 0.445, 0.667, 0.889];
 
         var guess = new Guess();
@@ -21,7 +21,7 @@ describe("Guess_integeration", function() {
         expect(result).toEqual("4A0B");
     });
 
-    it("normal test", function() {
+    it("#inValue() normal test", function() {
         i = 0;
         returnValue = [0.723, 0.445, 0.667, 0.889];
 

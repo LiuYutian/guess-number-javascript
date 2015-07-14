@@ -22,7 +22,7 @@ describe("Guess_unit", function() {
         });
     });
 
-    it("src1234，in1234：4A0B", function() {
+    it("#inValue() src1234，in1234：4A0B", function() {
         getNumberValue = "1234";
         comparisonValue = "4A0B"
         afferent = "1234"
@@ -33,7 +33,7 @@ describe("Guess_unit", function() {
         expect(result).toEqual("4A0B");
     });
 
-    it("src1234，in4321：0A4B", function() {
+    it("#inValue() src1234，in4321：0A4B", function() {
         getNumberValue = "1234";
         comparisonValue = "0A4B"
         afferent = "4325"
@@ -44,7 +44,7 @@ describe("Guess_unit", function() {
         expect(result).toEqual("0A4B");
     });
 
-    it("src1234，in5678：0A0B", function(){
+    it("#inValue() src1234，in5678：0A0B", function(){
         getNumberValue = "1234";
         comparisonValue = "0A0B"
         afferent = "5678"
@@ -55,7 +55,7 @@ describe("Guess_unit", function() {
         expect(result).toEqual("0A0B");
     });
 
-    it("src1234，in1111：1A3B", function() {
+    it("#inValue() src1234，in1111：1A3B", function() {
         getNumberValue = "1234";
         comparisonValue = "1A3B"
         afferent = "1111"

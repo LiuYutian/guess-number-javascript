@@ -12,7 +12,7 @@ describe("answerGenerator", function() {
         });
     });
 
-    it("normal test", function() {
+    it("#getNumberFour() normal test", function() {
         returnValue = [0.123, 0.345, 0.567, 0.789];
         i = 0;
         var answerGenerator = new AnswerGenerator();
@@ -21,7 +21,7 @@ describe("answerGenerator", function() {
         expect(number).toEqual("1357");
     });
 
-    it("desc test", function() {
+    it("#getNumberFour() desc test", function() {
         returnValue = [0.723, 0.445, 0.667, 0.889];
         i = 0;
         var answerGenerator = new AnswerGenerator();
@@ -30,7 +30,7 @@ describe("answerGenerator", function() {
         expect(number).toEqual("7468");
     });
 
-    it("repeat test", function() {
+    it("#getNumberFour() repeat test", function() {
         returnValue = [0.123, 0.145, 0.267, 0.489, 0.9999, 0.33333];
         i = 0;
         var answerGenerator = new AnswerGenerator();
@@ -39,7 +39,7 @@ describe("answerGenerator", function() {
         expect(number).toEqual("1249");
     });
 
-    it("0 test", function() {
+    it("#getNumberFour() 0 test", function() {
         returnValue = [0.023, 0.145, 0.267, 0.489, 0.9999, 0.33333];
         i = 0;
         var answerGenerator = new AnswerGenerator();
