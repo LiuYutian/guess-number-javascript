@@ -1,0 +1,14 @@
+{
+  "name": "guessnumber",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js --use_strict",
+    "test": "istanbul cover --include-all-sources jasmine ./spec/*_spec.js"
+  },
+  "dependencies": {
+    "jasmine": "^2.3.1",
+    "lodash": "^3.1.0"
+  },
+  "devDependencies": {}
+}
