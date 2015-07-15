@@ -120,10 +120,12 @@ TN:
 SF:/home/lyt/repos/guess-number-javascript/practices/compareNumber.js
 FN:3,CompareNumber
 FN:5,(anonymous_2)
-FNF:2
-FNH:2
+FN:8,(anonymous_3)
+FNF:3
+FNH:3
 FNDA:8,CompareNumber
 FNDA:7,(anonymous_2)
+FNDA:28,(anonymous_3)
 DA:3,1
 DA:5,1
 DA:6,7
