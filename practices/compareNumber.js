@@ -1,16 +1,14 @@
 'use strict';
 
-function CompareNumber(srcValue) {
-    this.srcValue = srcValue;
-}
+function CompareNumber(srcValue) {}
 
-CompareNumber.prototype.comparison = function(nowValue) {
+CompareNumber.prototype.comparison = function(nowValue, srcValue) {
     var a = 0, b = 0;
 
-    for(var i = 0; i < this.srcValue.length; i++) {
-        if(nowValue[i] === this.srcValue[i]) {
+    for(var i = 0; i < srcValue.length; i++) {
+        if(nowValue[i] === srcValue[i]) {
             a++;
-        }else if(this.srcValue.indexOf(nowValue[i]) !== -1) {
+        }else if(srcValue.indexOf(nowValue[i]) !== -1) {
             b++;
         }
     }

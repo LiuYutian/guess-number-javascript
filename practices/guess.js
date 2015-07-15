@@ -8,9 +8,9 @@ function Guess() {
 }
 
 Guess.prototype.inValue = function(value) {
-    var compareNumber = new ComparaNumber(this.srcNumber)
+    var compareNumber = new ComparaNumber()
 
-    return compareNumber.comparison(value);
+    return compareNumber.comparison(value, this.srcNumber);
 }
 
 module.exports = Guess;

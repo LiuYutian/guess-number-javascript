@@ -1,19 +1,18 @@
 'use strict';
 
-function AnswerGenerator() {
-    this.result = "";
-}
+function AnswerGenerator() {}
 
 AnswerGenerator.prototype.getNumberFour = function() {
-    while(this.result.length < 4) {
+    var result = "";
+    while(result.length < 4) {
         var value = Math.floor(Math.random() * 10);
 
-        if(this.result.indexOf(value) === -1) {
-            this.result += value;
+        if(result.indexOf(value) === -1) {
+            result += value;
         }
     }
 
-    return this.result;
+    return result;
 }
 
 module.exports = AnswerGenerator;

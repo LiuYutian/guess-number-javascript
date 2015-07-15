@@ -3,48 +3,45 @@
 var AnswerGenerator = require("../practices/answerGenerator.js");
 
 describe("answerGenerator", function() {
-    var returnValue;
-    var i = 0;
+    describe("#getNumberFour()", function() {
+        var answerGenerator = new AnswerGenerator();
+        var returnValue;
+        var i = 0;
 
-    beforeEach(function() {
-        spyOn(Math, "random").and.callFake(function() {
-            return returnValue[i++];
+        beforeEach(function() {
+            i = 0;
+            spyOn(Math, "random").and.callFake(function() {
+                return returnValue[i++];
+            });
         });
-    });
 
-    it("#getNumberFour() normal test", function() {
-        returnValue = [0.123, 0.345, 0.567, 0.789];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+        it("normal test", function() {
+            returnValue = [0.123, 0.345, 0.567, 0.789];
 
-        expect(number).toEqual("1357");
-    });
+            var number = answerGenerator.getNumberFour();
 
-    it("#getNumberFour() desc test", function() {
-        returnValue = [0.723, 0.445, 0.667, 0.889];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+            expect(number).toEqual("1357");
+        });
 
-        expect(number).toEqual("7468");
-    });
+        it("desc test", function() {
+            returnValue = [0.723, 0.445, 0.667, 0.889];
+            var number = answerGenerator.getNumberFour();
 
-    it("#getNumberFour() repeat test", function() {
-        returnValue = [0.123, 0.145, 0.267, 0.489, 0.9999, 0.33333];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+            expect(number).toEqual("7468");
+        });
 
-        expect(number).toEqual("1249");
-    });
+        it("repeat test", function() {
+            returnValue = [0.123, 0.145, 0.267, 0.489, 0.9999, 0.33333];
+            var number = answerGenerator.getNumberFour();
 
-    it("#getNumberFour() 0 test", function() {
-        returnValue = [0.023, 0.145, 0.267, 0.489, 0.9999, 0.33333];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+            expect(number).toEqual("1249");
+        });
 
-        expect(number).toEqual("0124");
+        it("0 test", function() {
+            returnValue = [0.023, 0.145, 0.267, 0.489, 0.9999, 0.33333];
+            var number = answerGenerator.getNumberFour();
+
+            expect(number).toEqual("0124");
+        });
     });
 });

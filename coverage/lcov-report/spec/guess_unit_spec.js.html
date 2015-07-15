@@ -15,10 +15,10 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">spec/guess_unit_spec.js</span></h1>
     <h2>
-        Statements: <span class="metric">100% <small>(41 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(42 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">50% <small>(1 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">100% <small>(8 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">100% <small>(41 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(9 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(42 / 42)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">spec/</a> &#187; guess_unit_spec.js</div>
@@ -104,6 +104,7 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">4</span>
@@ -113,7 +114,6 @@
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,74 +170,74 @@ var AnswerGenerator = require("../practices/answerGenerator.js");
 var CompareNumber = require("../practices/compareNumber.js");
 &nbsp;
 describe("Guess_unit", function() {
-    var getNumberValue;
-    var comparisonValue;
-    var afferent;
+    describe("#inValue()", function() {
+        var getNumberValue;
+        var comparisonValue;
+        var afferent;
 &nbsp;
-    beforeEach(function() {
-        spyOn(AnswerGenerator.prototype, "getNumberFour").and.callFake(function() {
-            return getNumberValue;
+        beforeEach(function() {
+            spyOn(AnswerGenerator.prototype, "getNumberFour").and.callFake(function() {
+                return getNumberValue;
+            });
+&nbsp;
+            spyOn(CompareNumber.prototype, "comparison").and.callFake(function(value) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(value === afferent) {
+                    return comparisonValue;
+                }
+            });
         });
 &nbsp;
-        spyOn(CompareNumber.prototype, "comparison").and.callFake(function(value) {
-            <span class="missing-if-branch" title="else path not taken" >E</span>if(value === afferent) {
-                return comparisonValue;
-            }
+        it("src1234，in1234：4A0B", function() {
+            getNumberValue = "1234";
+            comparisonValue = "4A0B"
+            afferent = "1234"
 &nbsp;
+            var guess = new Guess();
+            var result = guess.inValue("1234");
+&nbsp;
+            expect(result).toEqual("4A0B");
+        });
+&nbsp;
+        it("src1234，in4321：0A4B", function() {
+            getNumberValue = "1234";
+            comparisonValue = "0A4B"
+            afferent = "4325"
+&nbsp;
+            var guess = new Guess();
+            var result = guess.inValue("4325");
+&nbsp;
+            expect(result).toEqual("0A4B");
+        });
+&nbsp;
+        it("src1234，in5678：0A0B", function(){
+            getNumberValue = "1234";
+            comparisonValue = "0A0B"
+            afferent = "5678"
+&nbsp;
+            var guess = new Guess();
+            var result = guess.inValue("5678");
+&nbsp;
+            expect(result).toEqual("0A0B");
+        });
+&nbsp;
+        it("src1234，in1111：1A3B", function() {
+            getNumberValue = "1234";
+            comparisonValue = "1A3B"
+            afferent = "1111"
+&nbsp;
+            var guess = new Guess();
+            var result = guess.inValue("1111");
+&nbsp;
+            expect(result).toEqual("1A3B");
         });
     });
-&nbsp;
-    it("#inValue() src1234，in1234：4A0B", function() {
-        getNumberValue = "1234";
-        comparisonValue = "4A0B"
-        afferent = "1234"
-&nbsp;
-        var guess = new Guess();
-        var result = guess.inValue("1234");
-&nbsp;
-        expect(result).toEqual("4A0B");
-    });
-&nbsp;
-    it("#inValue() src1234，in4321：0A4B", function() {
-        getNumberValue = "1234";
-        comparisonValue = "0A4B"
-        afferent = "4325"
-&nbsp;
-        var guess = new Guess();
-        var result = guess.inValue("4325");
-&nbsp;
-        expect(result).toEqual("0A4B");
-    });
-&nbsp;
-    it("#inValue() src1234，in5678：0A0B", function(){
-        getNumberValue = "1234";
-        comparisonValue = "0A0B"
-        afferent = "5678"
-&nbsp;
-        var guess = new Guess();
-        var result = guess.inValue("5678");
-&nbsp;
-        expect(result).toEqual("0A0B");
-    });
-&nbsp;
-    it("#inValue() src1234，in1111：1A3B", function() {
-        getNumberValue = "1234";
-        comparisonValue = "1A3B"
-        afferent = "1111"
-&nbsp;
-        var guess = new Guess();
-        var result = guess.inValue("1111");
-&nbsp;
-        expect(result).toEqual("1A3B");
-    });
-&nbsp;
 });
 &nbsp;</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jul 14 2015 21:24:32 GMT+0800 (CST)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 15 2015 11:45:50 GMT+0800 (CST)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

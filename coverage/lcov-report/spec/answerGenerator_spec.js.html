@@ -15,10 +15,10 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">spec/answerGenerator_spec.js</span></h1>
     <h2>
-        Statements: <span class="metric">100% <small>(31 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">100% <small>(7 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">100% <small>(31 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(8 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(26 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">spec/</a> &#187; answerGenerator_spec.js</div>
@@ -72,18 +72,18 @@
 45
 46
 47
-48
-49
-50
-51</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+48</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-yes">17</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -91,6 +91,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -101,8 +107,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -110,19 +114,9 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -130,49 +124,46 @@
 var AnswerGenerator = require("../practices/answerGenerator.js");
 &nbsp;
 describe("answerGenerator", function() {
-    var returnValue;
-    var i = 0;
+    describe("#getNumberFour()", function() {
+        var answerGenerator = new AnswerGenerator();
+        var returnValue;
+        var i = 0;
 &nbsp;
-    beforeEach(function() {
-        spyOn(Math, "random").and.callFake(function() {
-            return returnValue[i++];
+        beforeEach(function() {
+            i = 0;
+            spyOn(Math, "random").and.callFake(function() {
+                return returnValue[i++];
+            });
         });
-    });
 &nbsp;
-    it("#getNumberFour() normal test", function() {
-        returnValue = [0.123, 0.345, 0.567, 0.789];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+        it("normal test", function() {
+            returnValue = [0.123, 0.345, 0.567, 0.789];
 &nbsp;
-        expect(number).toEqual("1357");
-    });
+            var number = answerGenerator.getNumberFour();
 &nbsp;
-    it("#getNumberFour() desc test", function() {
-        returnValue = [0.723, 0.445, 0.667, 0.889];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+            expect(number).toEqual("1357");
+        });
 &nbsp;
-        expect(number).toEqual("7468");
-    });
+        it("desc test", function() {
+            returnValue = [0.723, 0.445, 0.667, 0.889];
+            var number = answerGenerator.getNumberFour();
 &nbsp;
-    it("#getNumberFour() repeat test", function() {
-        returnValue = [0.123, 0.145, 0.267, 0.489, 0.9999, 0.33333];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+            expect(number).toEqual("7468");
+        });
 &nbsp;
-        expect(number).toEqual("1249");
-    });
+        it("repeat test", function() {
+            returnValue = [0.123, 0.145, 0.267, 0.489, 0.9999, 0.33333];
+            var number = answerGenerator.getNumberFour();
 &nbsp;
-    it("#getNumberFour() 0 test", function() {
-        returnValue = [0.023, 0.145, 0.267, 0.489, 0.9999, 0.33333];
-        i = 0;
-        var answerGenerator = new AnswerGenerator();
-        var number = answerGenerator.getNumberFour();
+            expect(number).toEqual("1249");
+        });
 &nbsp;
-        expect(number).toEqual("0124");
+        it("0 test", function() {
+            returnValue = [0.023, 0.145, 0.267, 0.489, 0.9999, 0.33333];
+            var number = answerGenerator.getNumberFour();
+&nbsp;
+            expect(number).toEqual("0124");
+        });
     });
 });
 &nbsp;</pre></td></tr>
@@ -180,7 +171,7 @@ describe("answerGenerator", function() {
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jul 14 2015 21:24:32 GMT+0800 (CST)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 15 2015 11:45:50 GMT+0800 (CST)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>
